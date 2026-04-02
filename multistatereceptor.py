@@ -113,7 +113,7 @@ for i in range(len(nlist)):
     rate_ms[i] = MutualInformationRate_downstream(const, ligrec_downstream_sol_x, ligrec_downstream_sol_lx, x0vec, n)
     print(rate_ms[i])
     
-# np.savetxt(f'mi-ms-k1-{const[0]}-k2-{const[1]}-koff-{const[2]}-kon-{const[3]}-k4-{const[4]}-k5-{const[5]}-kswitch-{const[6]}-M-{M}-t_max-{t_max}.out', [rate_ms, nlist])
+np.savetxt(f'mi-ms-k1-{const[0]}-k2-{const[1]}-koff-{const[2]}-kon-{const[3]}-k4-{const[4]}-k5-{const[5]}-kswitch-{const[6]}-M-{M}-t_max-{t_max}.out', [rate_ms, nlist])
     
 #%% Plotting 
 
@@ -127,9 +127,10 @@ mirb = const[1]/2*(-1+(np.sqrt(2*const[3]*const[2]*M/(const[0]*const[2]+const[1]
 
 const[3] = kmin
 
-rate_ms, xaxis = np.loadtxt(f'mi-ms-k1-{const[0]}-k2-{const[1]}-koff-{const[2]}-kon-{const[3]}-k4-{const[4]}-k5-{const[5]}-kswitch-{const[6]}-M-{M}-t_max-{t_max}.out')
+rate_ms, xaxis = np.loadtxt(f'mi-circle-k1-{const[0]}-k2-{const[1]}-koff-{const[2]}-kon-{const[3]}-k4-{const[4]}-k5-{const[5]}-kswitch-{const[6]}-M-{M}-t_max-{t_max}.out')
 
-plt.plot(xaxis, rate_ms, color = 'blue', linewidth = lwd)
+plt.figure(1, figsize= (10,10))
+plt.plot(xaxis, rate_ms, 'o', color = 'blue', linewidth = lwd, markersize = 8)
 plt.plot(xaxis, np.full(len(xaxis), mirb), color = 'green', linestyle = '--', linewidth = lwd)
 plt.plot(xaxis, np.full(len(xaxis), misb), color = 'grey', linestyle = '--', linewidth = lwd)
 plt.xlabel(r'Number of Receptor States $n$')
@@ -137,5 +138,5 @@ plt.ylabel(r'Mutual Information Rate $i^{lr}$')
 plt.legend(('multi-state receptor', 'reaction-based', 'state-based'), loc = 'best')
 plt.axis([1,40,0.01,0.019])
 plt.ticklabel_format(style = 'sci',axis = 'y',scilimits = (0,0))
-# plt.savefig('mirate_multistate.pdf',dpi=250)
+# plt.savefig('mirate_multistate_dots.pdf',dpi=250)
 plt.show()

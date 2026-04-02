@@ -147,7 +147,7 @@ class System:
                     lhs = "\\frac{\\mathrm{d}}{\\mathrm{d}t} K_{%d,%d}" %(i,j)
                     rhs = sympy.latex(dK[i,j].simplify())
                     f.write(lhs + " = " + rhs + " \n")
-    
+
 
 def MatrixEquation(t, cov0, system, m):
     cov0 = cov0.reshape((m, m))
@@ -177,7 +177,7 @@ def calculateCovariance(const, x_eq, reac_system, obsindx, dim, t_max, dt, lna_n
         system = reac_system(const, x_eq, obsindx, lna_noise)
     else:
         system = reac_system(const, x_eq, obsindx)
-
+    
     
     cov0_y = np.zeros((dim, dim)) 
 
@@ -200,19 +200,6 @@ def calculateCovariance(const, x_eq, reac_system, obsindx, dim, t_max, dt, lna_n
     sol_y = sol_y.reshape((len(sol_y), dim, dim))
     return sol_y
 
-def integrator(integrateSpecies, iniconds, const, dt, t_max):
-    y0 = iniconds
-    
-    sols0 = ode(integrateSpecies).set_integrator('vode', method='bdf', order=4)
-    sols0.set_initial_value(y0,0).set_f_params(const,)
-    
-    # integrator
-    sols = [y0]
-        
-    while sols0.successful() and sols0.t < t_max:
-        sols.append(sols0.integrate(sols0.t+dt))    
-    sols = np.array(sols)
-    return sols
 
 
 
