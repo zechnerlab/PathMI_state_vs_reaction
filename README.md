@@ -9,4 +9,4 @@ The repository contains the following files:
 4. `simulation_ms_receptor.mat`: Data file storing the calculated results.
 
 ## Reproducing the Fig.2b from the paper
-To reproduce Fig.2b from the paper, please run RunMSReceptorSimulations.m and refer to documentation inside the script. For plotting the results only, set `runSimulations=0`. For recomputing the resuls, set `runSimulations=1`, which will overwrite the existing file `simulation_ms_receptor.mat`. Note that the computation can take several minutes to complete.
+To reproduce Fig.2b from the paper, please run `RunMSReceptorSimulations.m` and refer to documentation inside the script. For plotting the results only, set `runSimulations=0`. For recomputing the resuls, set `runSimulations=1`, which will overwrite the existing file `simulation_ms_receptor.mat`. Note that the computation can take several minutes to complete.
