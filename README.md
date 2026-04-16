@@ -8,5 +8,5 @@ The repository contains the following files:
 3. `GenerateLNAODEFilter.m`: Automatically generates differential equations for the required conditional covariances based on the Linear Noise Approximation.
 4. `simulation_ms_receptor.mat`: Data file storing the calculated results.
 
-## Reproducing the figures of the paper 
+## Reproducing the Fig.2b from the paper
 To reproduce Fig.2b from the paper, please run RunMSReceptorSimulations.m and refer to documentation inside the script. For plotting the results only, set `runSimulations=0`. For recomputing the resuls, set `runSimulations=1`, which will overwrite the existing file `simulation_ms_receptor.mat`. Note that the computation can take several minutes to complete.
