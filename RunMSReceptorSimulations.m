@@ -22,7 +22,7 @@ close all;
 % Set this to 1 to compute the mutual information. Set this to 0 if you
 % only want to plot from the already existing simulations (stored in
 % "simulation_ms_receptor.mat".
-runSimulations = 1;
+runSimulations = 0;
 
 if (runSimulations==1)
 
@@ -31,19 +31,19 @@ if (runSimulations==1)
     T = 5000;
     grid = linspace(0, T, 300);
 
-    NVec = [1:10, 15:5:40]; % Number of active receptor states
-    RTot = 10; % Total number of receptor copies
-    c1 = 1; % Birth rate of ligand
-    c2 = 0.01; % Death rate of ligand
-    kOn = 1; % Activation rate
+    NVec = [1:10, 15:5:40]; % Number of active receptor states (parameter N in the paper)
+    RTot = 10; % Total number of receptor copies (parameter r_T in the paper)
+    c1 = 1; % Birth rate of ligand (parameter c_1 in the paper)
+    c2 = 0.01; % Death rate of ligand (parameter c_2 in the paper)
+    kOn = 1; % Activation rate (c^+ in the paper)
 
     % Birth and death rates of the downstream species X. Those are chosen fast to
     % converge to the state-based limit. Note that the degradation beta is only
     % needed to make X converge to a steady state. This parameter does
     % otherwise not enter the mutual information in the reaction-based
     % formalism, i.e., its particular value is irrelevant.
-    gamma = 6000000;
-    beta = 500000;
+    gamma = 6000000; %(parameter c_4 in the paper)
+    beta = 500000; %(parameter c_5 in the paper)
 
     % define parameters used for symbolic computation
     params = {'c1', 'c2', 'kOn', 'mu', 'gamma', 'beta'};
@@ -152,12 +152,11 @@ end
 
 % Create figure
 load("simulation_ms_receptor.mat");
-close all;
 plot(NVec, mi_ms_vec, '.', 'MarkerSize',12); hold on;
 plot([0, 41], mi_rb*ones(1, 2), '--', 'LineWidth', 1.5, 'Color', [0.3, 0.6, 0.3]);
 plot([0, 41], mi_sb*ones(1, 2), '--', 'LineWidth', 1.5, 'Color', [0.6, 0.6, 0.6]);
 xlim([0, 41]);
 ylim([0.010, 0.019]);
-xlabel('Number of Receptor States', 'Interpreter','tex');
+xlabel('Number of Receptor States', 'Interpreter','none');
 ylabel('Mutual Information Rate', 'Interpreter', 'none');
 legend('multi-state receptor', 'reaction-based', 'state-based');
