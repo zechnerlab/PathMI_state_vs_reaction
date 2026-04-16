@@ -3,10 +3,10 @@ This repository contains MATLAB code relating to Fig.2b from the paper "State- v
 
 ## Content
 The repository contains the following files:
--RunMSReceptorSimulations.m: Main script to run and plot analyses.  
--GenerateReceptorModel.m: Defines the stoichiometry and rates of the multi-state receptor model.
--GenerateLNAODEFilter.m: Automatically generates differential equations for the required conditional covariances using the LNA.
--simulation_ms_receptor.mat: Data file storing the calculated results.
+1. RunMSReceptorSimulations.m: Main script to run and plot analyses.  
+2. GenerateReceptorModel.m: Defines the stoichiometry and rates of the multi-state receptor model.
+3. GenerateLNAODEFilter.m: Automatically generates differential equations for the required conditional covariances using the LNA.
+4. simulation_ms_receptor.mat: Data file storing the calculated results.
 
 ## Reproducing the figures of the paper 
-To reproduce Fig.2b from the paper, please run RunMSReceptorSimulations.m and refer to documentation inside the script. For plotting the results only, set "runSimulations=0". For recomputing the resuls, set "runSimulations=1". This will overwrite the existing file "simulation_ms_receptor.mat". Note that the computation can take several minutes to complete.
+To reproduce Fig.2b from the paper, please run RunMSReceptorSimulations.m and refer to documentation inside the script. For plotting the results only, set 'runSimulations=0'. For recomputing the resuls, set 'runSimulations=1'. This will overwrite the existing file "simulation_ms_receptor.mat". Note that the computation can take several minutes to complete.
