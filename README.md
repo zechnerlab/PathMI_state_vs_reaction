@@ -1,4 +1,4 @@
-# Matlab code for calculating mutual information rates in a multi-state receptor system
+# Calculating mutual information rates in a multi-state receptor system
 This repository contains MATLAB code relating to Fig.2b from the paper "State- versus Reaction-Based Information Processing in Biochemical Networks" by Moor et al. (https://doi.org/10.1103/nfk6-8x5s). The code was used with MATLAB version 25.1.0.2943329 (R2025a) (The MathWorks Inc., Natick, Massachusetts).
 
 ## Content
