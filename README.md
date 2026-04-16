@@ -5,7 +5,7 @@ This repository contains MATLAB code relating to Fig.2b from the paper "State- v
 The repository contains the following files:
 1. `RunMSReceptorSimulations.m`: Main script to run and plot analyses.  
 2. `GenerateReceptorModel.m`: Defines the stoichiometry and rates of the multi-state receptor model.
-3. `GenerateLNAODEFilter.m`: Automatically generates differential equations for the required conditional covariances using the LNA.
+3. `GenerateLNAODEFilter.m`: Automatically generates differential equations for the required conditional covariances based on the Linear Noise Approximation.
 4. `simulation_ms_receptor.mat`: Data file storing the calculated results.
 
 ## Reproducing the figures of the paper 
